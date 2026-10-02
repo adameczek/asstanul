@@ -15,3 +15,7 @@ export function onLoadingDone(listener: () => void): void {
     listeners.add(listener);
   }
 }
+
+export function offLoadingDone(listener: () => void): void {
+  listeners.delete(listener);
+}

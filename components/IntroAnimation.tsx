@@ -3,10 +3,11 @@
 import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { onLoadingDone } from "@/lib/loading";
+import { onLoadingDone, offLoadingDone } from "@/lib/loading";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 const SUBJECT_REFERENCE_SCALE = 2.0;
 
 const CENTER_FRAMES = [
@@ -71,7 +72,22 @@ export default function IntroAnimation() {
       const isMobile = window.matchMedia(MOBILE_MEDIA_QUERY).matches;
       const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
       const subjectFinalLeft = isMobile ? "17vw" : "10vw";
- 
+
+      const lockScroll = () => {
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+      };
+      const unlockScroll = () => {
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      };
+
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+      lockScroll();
+
       const frameIndexBySrc = new Map(FRAMES.map((f, i) => [f.src, i]));
 
       const showFrame = (src: string) => {
@@ -87,6 +103,7 @@ export default function IntroAnimation() {
       let introDone = false;
       let isWinking = false;
       let winkTimer: gsap.core.Tween | null = null;
+      let exitTween: gsap.core.Tween | null = null;
 
       const replayWink = () => {
         if (!introDone || isWinking) return;
@@ -127,6 +144,7 @@ export default function IntroAnimation() {
         gsap.set(text, { x: 0, y: 0, rotation: 0, scale: 1, autoAlpha: 1 });
         showFrame(CENTER_FRAMES[1].src);
         introDone = true;
+        unlockScroll();
         return () => {
           subject.removeEventListener("click", onSubjectClick);
           subject.removeEventListener("keydown", onSubjectKeyDown);
@@ -204,9 +222,22 @@ export default function IntroAnimation() {
         .add(() => showFrame(CENTER_FRAMES[1].src), `+=${WINK_DUR}`)
         .eventCallback("onComplete", () => {
           introDone = true;
+          unlockScroll();
+
+          gsap.set(subject, { position: "fixed", zIndex: 30 });
+          exitTween = gsap.to(subject, {
+            x: () => -(window.innerWidth * 1.2),
+            ease: "none",
+            scrollTrigger: {
+              start: 0,
+              end: "max",
+              scrub: true,
+            },
+          });
         });
 
-      onLoadingDone(() => tl.play());
+      const playIntro = () => tl.play();
+      onLoadingDone(playIntro);
 
       const cursorGradient = cursorGradientRef.current!;
       const cursorRect = cursorRectRef.current!;
@@ -261,8 +292,12 @@ export default function IntroAnimation() {
         subject.removeEventListener("click", onSubjectClick);
         subject.removeEventListener("keydown", onSubjectKeyDown);
         winkTimer?.kill();
+        exitTween?.scrollTrigger?.kill();
+        exitTween?.kill();
         gsap.killTweensOf(cursor);
         gsap.killTweensOf(cursorRect);
+        offLoadingDone(playIntro);
+        unlockScroll();
       };
     },
     { scope: stageRef }
@@ -271,7 +306,7 @@ export default function IntroAnimation() {
   return (
     <div
       ref={stageRef}
-      className="relative h-screen w-screen overflow-hidden font-sans"
+      className="relative h-screen w-full overflow-hidden font-sans"
     >
       <svg
         aria-hidden

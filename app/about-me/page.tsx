@@ -1,9 +1,5 @@
+import AboutSection from "@/components/AboutSection";
+
 export default function AboutMe() {
-    return (
-        <>
-        <h1>About me</h1>
-        <p>To be developed...</p>
-        </>
-        
-    )
+  return <AboutSection />;
 }
