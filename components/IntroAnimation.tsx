@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { onLoadingDone } from "@/lib/loading";
 
 gsap.registerPlugin(useGSAP);
 const SUBJECT_REFERENCE_SCALE = 2.0;
@@ -32,7 +33,7 @@ const PERSON_LEFT_DUR = 0.75;
 const TEXT_UNROLL_DUR = 2.25;
 
 const EMERGE_POINT = { x: 20, y: 70 };
-const EMERGE_POINT_MOBILE = { x: 40, y: 80 };
+const EMERGE_POINT_MOBILE = { x: 50, y: 90 };
 const EMERGE_ANGLE = -40;
 
 const FINISH_HOLD = 0.2;
@@ -43,7 +44,7 @@ const FPS = 5;
 const stepEase = (duration: number) =>
   `steps(${Math.max(1, Math.round(duration * FPS))})`;
 
-const MOBILE_MEDIA_QUERY = "(max-width: 639px)";
+const MOBILE_MEDIA_QUERY = "(max-width: 767px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 const BAYER_4x4 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
@@ -69,7 +70,7 @@ export default function IntroAnimation() {
       const frames = gsap.utils.toArray<HTMLElement>(".subject-frame", subject);
       const isMobile = window.matchMedia(MOBILE_MEDIA_QUERY).matches;
       const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
-      const subjectFinalLeft = isMobile ? "15vw" : "10vw";
+      const subjectFinalLeft = isMobile ? "17vw" : "10vw";
  
       const frameIndexBySrc = new Map(FRAMES.map((f, i) => [f.src, i]));
 
@@ -156,7 +157,7 @@ export default function IntroAnimation() {
       });
       showFrame(CENTER_FRAMES[0].src);
 
-      const tl = gsap.timeline({ delay: 2, defaults: { ease: "power2.inOut" } });
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.inOut" } });
 
       tl.to(subject, {
         yPercent: -95,
@@ -173,12 +174,14 @@ export default function IntroAnimation() {
         { yPercent: 130, duration: HAND_OUT_DUR, ease: stepEase(HAND_OUT_DUR) },
         "handsOut"
       )
+        .add(() => showFrame(PROFILE_FRAMES[0].src), "handsOut")
         .to(
           subject,
           { left: subjectFinalLeft, duration: PERSON_LEFT_DUR, ease: stepEase(PERSON_LEFT_DUR) },
           "handsOut"
         )
-        .addLabel("textOut")
+        .add(() => showFrame(PROFILE_FRAMES[1].src))
+        .addLabel("textOut", `+=${FINISH_HOLD}`)
         .add(() => showFrame(MOUTH_OPEN_FRAME.src), "textOut")
         .to(
           text,
@@ -202,6 +205,8 @@ export default function IntroAnimation() {
         .eventCallback("onComplete", () => {
           introDone = true;
         });
+
+      onLoadingDone(() => tl.play());
 
       const cursorGradient = cursorGradientRef.current!;
       const cursorRect = cursorRectRef.current!;
@@ -367,7 +372,7 @@ export default function IntroAnimation() {
 
       <div
         ref={subjectRef}
-        className="absolute aspect-square w-[min(95vw,85vh)] sm:w-[min(60vw,62vh)]"
+        className="absolute aspect-square w-[min(95vw,85vh)] md:w-[min(60vw,62vh)]"
         style={{ left: "50%", top: "125%" }}
         role="button"
         tabIndex={0}
@@ -380,7 +385,7 @@ export default function IntroAnimation() {
                 src={frame.src}
                 alt=""
                 fill
-                sizes="(max-width: 640px) 95vw, 60vw"
+                sizes="(max-width: 767px) 95vw, 60vw"
                 priority={frame.src === CENTER_FRAMES[0].src}
                 className="object-contain"
               />
@@ -391,12 +396,12 @@ export default function IntroAnimation() {
 
       <div
         ref={textRef}
-        className="absolute right-[1vw] top-[4vh] z-40 w-fit sm:left-[34vw] sm:top-[28vh]"
+        className="absolute right-[1vw] top-[20vh] z-40 w-fit md:left-[34vw] md:top-[40vh]"
       >
-        <h1 className="text-line font-display block w-fit bg-black px-3 py-1 text-[clamp(2.5rem,9vw,4rem)] font-bold leading-tight tracking-tight text-zinc-50 dark:bg-zinc-50 dark:text-black sm:text-[clamp(3.5rem,9vw,7rem)]">
+        <h1 className="text-line font-display block w-fit bg-black px-3 py-1 text-[clamp(2.5rem,9vw,4rem)] font-bold leading-tight tracking-tight text-zinc-50 dark:bg-zinc-50 dark:text-black md:text-[clamp(3.5rem,9vw,7rem)]">
           Adam Sawicki-Stanul
         </h1>
-        <h2 className="text-line mt-2 block w-fit bg-black px-3 py-0.5 text-[clamp(1rem,4.5vw,1.5rem)] text-zinc-50 dark:bg-zinc-50 dark:text-black sm:text-[clamp(1.25rem,4.5vw,1.75rem)]">
+        <h2 className="text-line mt-2 block w-fit bg-black px-3 py-0.5 text-[clamp(1rem,4.5vw,1.5rem)] text-zinc-50 dark:bg-zinc-50 dark:text-black md:text-[clamp(1.25rem,4.5vw,1.75rem)]">
           Software Developer
         </h2>
       </div>

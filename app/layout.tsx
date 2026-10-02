@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Pixelify_Sans, Fira_Code } from "next/font/google";
+import LoadingScreen from "@/components/LoadingScreen";
 import "./globals.css";
 
 const pixelifySans = Pixelify_Sans({
@@ -23,7 +24,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${pixelifySans.variable} ${firaCode.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <LoadingScreen />
+      </body>
     </html>
   );
 }
