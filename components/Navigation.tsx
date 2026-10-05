@@ -42,6 +42,7 @@ export default function Navigation({
 
   const isActive = (path: string) => {
     const full = hrefFor(path);
+    if (path === "") return pathname === full;
     return pathname === full || pathname.startsWith(`${full}/`);
   };
 

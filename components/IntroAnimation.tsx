@@ -311,7 +311,7 @@ export default function IntroAnimation({
   return (
     <div
       ref={stageRef}
-      className="relative h-screen w-full overflow-hidden font-sans"
+      className="relative h-dvh w-full overflow-hidden font-sans"
     >
       <svg
         aria-hidden
