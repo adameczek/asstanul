@@ -5,6 +5,8 @@ import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import { getDictionary } from "@/lib/i18n";
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const pixelifySans = Pixelify_Sans({
   subsets: ["latin", "latin-ext"],
@@ -46,6 +48,8 @@ export default async function RootLayout({
         <Navigation navigation={dict.navigation} />
         {children}
         <LoadingScreen loading={dict.loading} />
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
