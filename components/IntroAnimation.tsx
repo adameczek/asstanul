@@ -235,7 +235,7 @@ export default function IntroAnimation({
             ease: "none",
             scrollTrigger: {
               start: 0,
-              end: "max",
+              end: () => window.innerHeight * 0.5,
               scrub: true,
             },
           });
@@ -447,7 +447,7 @@ export default function IntroAnimation({
       </div>
 
       <div
-        className="tv-flicker pointer-events-none absolute inset-0 z-30"
+        className="tv-flicker pointer-events-none absolute inset-0 z-30 hidden md:block"
         style={{ opacity: 0.12 }}
         aria-hidden
       />
