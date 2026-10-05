@@ -128,5 +128,6 @@
     "blog": "Blog",
     "gallery": "Gallery",
     "todo": "To be developed..."
-  }
+  },
+  "test": "test"
 }
