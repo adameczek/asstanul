@@ -1,13 +1,16 @@
 import IntroAnimation from "@/components/IntroAnimation";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import { getDictionary } from "@/lib/i18n";
 
-export default function Home() {
+export default async function Home() {
+  const dict = await getDictionary();
+
   return (
     <>
-      <IntroAnimation />
+      <IntroAnimation intro={dict.intro} />
       <AboutSection />
-      <ContactSection />
+      <ContactSection contact={dict.contact} />
     </>
   );
 }

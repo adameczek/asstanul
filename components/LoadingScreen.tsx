@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { markLoadingDone } from "@/lib/loading";
+import type { Dictionary } from "@/lib/i18n";
 
 gsap.registerPlugin(useGSAP);
 
@@ -34,7 +35,11 @@ const waitForLoad = () =>
     document.fonts.ready,
   ]);
 
-export default function LoadingScreen() {
+export default function LoadingScreen({
+  loading,
+}: {
+  loading: Dictionary["loading"];
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const coverRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -146,7 +151,7 @@ export default function LoadingScreen() {
           ref={textRef}
           className="font-display text-5xl font-bold tracking-tight md:text-7xl"
         >
-          Loading
+          {loading.text}
           <span className="loading-dot">.</span>
           <span className="loading-dot">.</span>
           <span className="loading-dot">.</span>

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { onLoadingDone, offLoadingDone } from "@/lib/loading";
+import type { Dictionary } from "@/lib/i18n";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 const SUBJECT_REFERENCE_SCALE = 2.0;
@@ -52,7 +53,11 @@ const BAYER_4x4 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 const BAYER_TILE = 16;
 const BAYER_CELL = BAYER_TILE / 4;
 
-export default function IntroAnimation() {
+export default function IntroAnimation({
+  intro,
+}: {
+  intro: Dictionary["intro"];
+}) {
   const stageRef = useRef<HTMLDivElement>(null);
   const handLeftRef = useRef<HTMLDivElement>(null);
   const handRightRef = useRef<HTMLDivElement>(null);
@@ -384,7 +389,7 @@ export default function IntroAnimation() {
       >
         <Image
           src="/pictures/climbing_hand_left.webp"
-          alt="Left climbing hand"
+          alt={intro.leftHand}
           fill
           sizes="34vw"
           className="object-contain"
@@ -398,7 +403,7 @@ export default function IntroAnimation() {
       >
         <Image
           src="/pictures/climbing_hand_right.webp"
-          alt="Right climbing hand"
+          alt={intro.rightHand}
           fill
           sizes="36vw"
           className="object-contain"
@@ -411,7 +416,7 @@ export default function IntroAnimation() {
         style={{ left: "50%", top: "125%" }}
         role="button"
         tabIndex={0}
-        aria-label="Wink"
+        aria-label={intro.wink}
       >
         <div className="absolute inset-0">
           {FRAMES.map((frame) => (
@@ -434,10 +439,10 @@ export default function IntroAnimation() {
         className="absolute right-[1vw] top-[20vh] z-40 w-fit md:left-[34vw] md:top-[40vh]"
       >
         <h1 className="text-line font-display block w-fit bg-black px-3 py-1 text-[clamp(2.5rem,9vw,4rem)] font-bold leading-tight tracking-tight text-zinc-50 dark:bg-zinc-50 dark:text-black md:text-[clamp(3.5rem,9vw,7rem)]">
-          Adam Sawicki-Stanul
+          {intro.name}
         </h1>
         <h2 className="text-line mt-2 block w-fit bg-black px-3 py-0.5 text-[clamp(1rem,4.5vw,1.5rem)] text-zinc-50 dark:bg-zinc-50 dark:text-black md:text-[clamp(1.25rem,4.5vw,1.75rem)]">
-          Software Developer
+          {intro.role}
         </h2>
       </div>
 

@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "home": "Home",
+    "aboutMe": "About Me",
+    "contact": "Contact",
+    "blog": "Blog",
+    "gallery": "Gallery",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "intro": {
+    "name": "Adam Sawicki-Stanul",
+    "role": "Software Developer",
+    "wink": "Wink",
+    "leftHand": "Left climbing hand",
+    "rightHand": "Right climbing hand"
+  },
+  "loading": {
+    "text": "Loading"
+  },
+  "about": {
+    "heading": "About Me",
+    "introduction": "Introduction",
+    "proudOf": "What I'm proud of",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "languages": "Languages",
+    "todo": "To be developed..."
+  },
+  "modeSwitch": {
+    "professional": "Professional",
+    "casual": "Casual"
+  },
+  "contact": {
+    "bubble": "Contact Me!",
+    "email": "Email",
+    "title": "Title",
+    "description": "Description",
+    "send": "Send",
+    "emailPlaceholder": "you@example.com",
+    "titlePlaceholder": "Subject",
+    "descriptionPlaceholder": "Your message",
+    "waitressAlt": "Waitress"
+  },
+  "pages": {
+    "blog": "Blog",
+    "gallery": "Gallery",
+    "todo": "To be developed..."
+  }
+}

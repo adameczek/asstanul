@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "home": "Strona główna",
+    "aboutMe": "O mnie",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "gallery": "Galeria",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "intro": {
+    "name": "Adam Sawicki-Stanul",
+    "role": "Software Developer",
+    "wink": "Mrugnij",
+    "leftHand": "Lewa wspinająca się dłoń",
+    "rightHand": "Prawa wspinająca się dłoń"
+  },
+  "loading": {
+    "text": "Ładowanie"
+  },
+  "about": {
+    "heading": "O mnie",
+    "introduction": "Wprowadzenie",
+    "proudOf": "Z czego jestem dumny",
+    "skills": "Umiejętności",
+    "experience": "Doświadczenie",
+    "education": "Edukacja",
+    "languages": "Języki",
+    "todo": "W przygotowaniu..."
+  },
+  "modeSwitch": {
+    "professional": "Profesjonalny",
+    "casual": "Swobodny"
+  },
+  "contact": {
+    "bubble": "Skontaktuj się ze mną!",
+    "email": "E-mail",
+    "title": "Tytuł",
+    "description": "Opis",
+    "send": "Wyślij",
+    "emailPlaceholder": "ty@przyklad.pl",
+    "titlePlaceholder": "Temat",
+    "descriptionPlaceholder": "Twoja wiadomość",
+    "waitressAlt": "Kelnerka"
+  },
+  "pages": {
+    "blog": "Blog",
+    "gallery": "Galeria",
+    "todo": "W przygotowaniu..."
+  }
+}

@@ -14,6 +14,7 @@
   --font-sans: var(--font-fira-code);
   --font-mono: var(--font-fira-code);
   --font-display: var(--font-pixelify);
+  --font-handwriting: var(--font-shadows);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,6 +82,81 @@ body {
   }
 }
 
+.contact-slide-left {
+  animation: contact-slide-left 0.8s ease-out both;
+}
+
+.contact-slide-right {
+  animation: contact-slide-right 0.8s ease-out both;
+}
+
+.contact-bubble {
+  animation: contact-bubble-pop 0.5s ease-out 0.6s both;
+}
+
+.contact-hand-slide-in {
+  animation: contact-hand-slide-in 0.45s ease-out both;
+}
+
+.contact-hand-slide-out {
+  animation: contact-hand-slide-out 0.4s ease-in both;
+}
+
+@keyframes contact-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes contact-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes contact-bubble-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes contact-hand-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes contact-hand-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tv-flicker {
     animation: none;
@@ -89,5 +165,13 @@ body {
   .loading-dot {
     animation: none;
     opacity: 1;
+  }
+
+  .contact-slide-left,
+  .contact-slide-right,
+  .contact-bubble,
+  .contact-hand-slide-in,
+  .contact-hand-slide-out {
+    animation: none;
   }
 }
