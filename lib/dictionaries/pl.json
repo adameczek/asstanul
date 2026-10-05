@@ -21,16 +21,97 @@
   "about": {
     "heading": "O mnie",
     "introduction": "Wprowadzenie",
+    "introductionText": "Programista z **6-letnim** doświadczeniem zawodowym w XTM, firmie produktowej tworzącej system do zarządzania tłumaczeniami. Przeszedłem całą ścieżkę technologiczną — od **QA**, przez **backend**, po **frontend** — a obecnie specjalizuję się w rozwoju frontendu z użyciem **React** i **TypeScript**. Mam też praktyczne doświadczenie z Angularem, czystym JavaScriptem oraz pracą po stronie backendu w **Java 17**, **Spring Boot** i **MongoDB**. Moje interdyscyplinarne doświadczenie daje mi dogłębne zrozumienie wyzwań, przed którymi stoją moi współpracownicy, co sprawia, że współpraca jest szybsza i skuteczniejsza. Obecnie poszukuję stanowisk frontendowych lub fullstackowych, w których mógłbym dalej tworzyć nowoczesne, dobrze zaprojektowane produkty.",
     "proudOf": "Z czego jestem dumny",
+    "proudOfText": [
+      "Zbudowałem wewnętrzne narzędzie do zarządzania branchami (Atlassian Forge + React, Spring Boot + Project Reactor), które zautomatyzowało konfigurację repozytoriów – skracając czas tworzenia gałęzi wydań i deweloperskich z ~1 godziny do kilku minut. Narzędzie obsługiwało tworzenie branchów, konfigurację plików XML/tekstowych oraz konfigurację Jenkinsfile we wszystkich repozytoriach.",
+      "Zbadałem i przepisałem przestarzały moduł w celu poprawy dostępności dla użytkowników z niepełnosprawnościami, zgodnie ze standardami WCAG (Web Content Accessibility Guidelines).",
+      "Opracowałem w pełni responsywną tabelę przy użyciu TanStack Table, obsługującą przeciąganie i upuszczanie kolumn, sortowanie, pełne zmienianie rozmiaru kolumn oraz blokowanie kolumn.",
+      "Zrefaktoryzowałem rozbudowaną logikę warunkową, wprowadzając wzorzec projektowy Strategia, przekształcając złożoną logikę biznesową w przejrzyste i łatwe w utrzymaniu klasy odpowiedzialne za poszczególne operacje."
+    ],
     "skills": "Umiejętności",
+    "skillsList": [
+      "React",
+      "TypeScript",
+      "Radix UI",
+      "RTK Query",
+      "Redux",
+      "Webpack",
+      "Vitest",
+      "Playwright",
+      "NextJS",
+      "TailwindCSS",
+      "React Testing Library",
+      "Java 17",
+      "Spring Boot",
+      "Jenkins",
+      "Claude Code"
+    ],
     "experience": "Doświadczenie",
+    "experienceList": [
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "05.2025 - 06.2026",
+        "role": "Frontend Developer",
+        "details": [
+          "Odpowiadałem za architekturę, rozwój i utrzymanie frontendu w wyznaczonym obszarze platformy lokalizacyjnej XTM jako jedyny frontend developer w 5-osobowym zespole.",
+          "Wdrażałem nowe funkcje w React i TypeScript end-to-end, utrzymując wysoką jakość kodu poprzez komponenty wielokrotnego użytku, ścisłe typowanie i testowanie.",
+          "Zmodernizowałem przestarzały moduł listy klientów w AngularJS, refaktoryzując go do React, co zmniejszyło ilość przestarzałego kodu i poprawiło długoterminową utrzymywalność.",
+          "Korzystałem z narzędzi AI wspomagających programowanie w codziennej pracy, aby przyspieszyć dostarczanie i ograniczyć powtarzalne zadania implementacyjne.",
+          "Prezentowałem nowe funkcje interesariuszom, przekładając szczegóły techniczne na jasny wpływ na produkt."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "01-2023 - 05.2025",
+        "role": "Junior Frontend Developer",
+        "details": [
+          "Byłem jednym z dwóch inżynierów w migracji frontendu listy zadań i użytkowników XTM z AngularJS/jQuery na React, TypeScript i RTK Query, konwertując legacy widoki na typowane komponenty wielokrotnego użytku.",
+          "Współprojektowałem architekturę komponentów dla modułu listy zadań i użytkowników, ujednolicając tabele, filtry, paginację i widoki szczegółów."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "10.2021 - 01.2023",
+        "role": "Junior Java Developer",
+        "details": [
+          "Kierowałem rozwojem wewnętrznego pluginu Jira na Atlassian Forge (frontend React, backend Java 17 / Spring Boot), używanego przez około 150 inżynierów, automatyzując ponad 200 workflow steps i integrując 2 zewnętrzne serwisy.",
+          "Zbudowałem usługę Java zintegrowaną z pipeline'ami Jenkins, aby zautomatyzować tworzenie i utrzymanie branchy w ponad 30 repozytoriach XTM, skracając czas konfiguracji do zaledwie kilku minut.",
+          "Pełniłem rolę lead developera, odpowiadając za architekturę, implementację i dostarczenie zarówno pluginu do Jira, jak i automatyzacji Jenkins."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "07.2020 - 10.2021",
+        "role": "QA Developer",
+        "details": [
+          "Tworzyłem testy automatyczne API przy użyciu SoapUI i Postman. Zapewniałem jakość oraz pokrycie regresyjne dla platformy XTM."
+        ]
+      }
+    ],
     "education": "Edukacja",
+    "educationList": [
+      {
+        "period": "2019 - 2023",
+        "degree": "Inżynier Informatyka",
+        "school": "Collegium Da Vinci",
+        "location": "Poznań"
+      }
+    ],
     "languages": "Języki",
+    "languagesList": [
+      { "name": "Polski", "level": "Ojczysty" },
+      { "name": "Angielski", "level": "Zaawansowany" }
+    ],
     "todo": "W przygotowaniu..."
   },
   "modeSwitch": {
-    "professional": "Profesjonalny",
-    "casual": "Swobodny"
+    "professional": "Dla rekrutera",
+    "casual": "Dla znajomych"
   },
   "contact": {
     "bubble": "Skontaktuj się ze mną!",

@@ -21,16 +21,97 @@
   "about": {
     "heading": "About Me",
     "introduction": "Introduction",
+    "introductionText": "Software developer with **6 years** of professional experience at XTM, a product company building a Translation Management System. I've grown across the stack from **QA** to **backend** to **frontend**, and now specialize in frontend development with **React** and **TypeScript**. I also have hands-on experience with Angular, plain JavaScript, and backend work in **Java 17**, **Spring Boot**, and **MongoDB**. My cross-functional background gives me a deep understanding of the challenges my teammates face, making collaboration faster and more effective. I'm currently looking for frontend or fullstack roles where I can keep building modern, well-architected products.",
     "proudOf": "What I'm proud of",
+    "proudOfText": [
+      "Built an internal branch management tool (Atlassian Forge + React, Spring Boot + Project Reactor) that automated repository setup - reducing release and development branch creation time from ~1 hour to a few minutes. Covered branch creation, XML/text file configuration, and Jenkinsfile setup across all repositories.",
+      "Investigated and rewrote a legacy module to improve accessibility for users with disabilities, following WCAG (Web Content Accessibility Guidelines) standards.",
+      "Developed a fully responsive data table using TanStack Table, supporting drag-and-drop column reordering, sorting, full column resizing, and column locking.",
+      "Refactored excessive conditional branching into the Strategy design pattern, reorganizing complex business logic into clean, maintainable action classes."
+    ],
     "skills": "Skills",
+    "skillsList": [
+      "React",
+      "TypeScript",
+      "Radix UI",
+      "RTK Query",
+      "Redux",
+      "Webpack",
+      "Vitest",
+      "Playwright",
+      "NextJS",
+      "TailwindCSS",
+      "React Testing Library",
+      "Java 17",
+      "Spring Boot",
+      "Jenkins",
+      "Claude Code"
+    ],
     "experience": "Experience",
+    "experienceList": [
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "05.2025 - 06.2026",
+        "role": "Frontend Developer",
+        "details": [
+          "Owned frontend architecture, development, and maintenance for the assigned XTM localization platform area as the sole frontend engineer on a 5-person cross-functional team.",
+          "Delivered new React and TypeScript features end-to-end, maintaining high code quality through reusable components, strict typing, and testing.",
+          "Modernized legacy AngularJS customer listing module by refactoring them to React, reducing outdated code and improving long-term maintainability.",
+          "Leveraged AI-assisted development tools in daily workflows to accelerate delivery and reduce repetitive implementation work.",
+          "Presented new features to stakeholders, translating technical details into clear product impact and tradeoffs."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "01.2023 - 05.2025",
+        "role": "Junior Frontend Developer",
+        "details": [
+          "Core engineer on the migration of XTM's tasks and user listing frontend from AngularJS/jQuery to React, TypeScript, and RTK Query, converting legacy views into reusable, typed components.",
+          "Co-designed the component architecture for the tasks and user listing module, standardizing tables, filters, pagination, and detail views across the team."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "10.2021 - 01.2023",
+        "role": "Junior Java Developer",
+        "details": [
+          "Led development of an internal Jira plugin on Atlassian Forge (React frontend, Java 17 / Spring Boot backend) used by around 150 engineers, automating 200+ workflow steps and integrating 2 external services.",
+          "Built a Java service integrated with Jenkins pipelines to automate branch creation and maintenance across 30+ XTM repositories, reducing setup time to only few minutes.",
+          "Served as lead developer, owning architecture, implementation, and delivery for both the Jira plugin and Jenkins automation service."
+        ]
+      },
+      {
+        "company": "XTM International",
+        "location": "Poznań",
+        "period": "07.2020 - 10.2021",
+        "role": "QA Developer",
+        "details": [
+          "Developed automated API tests using SoapUI and Postman. Ensured quality and regression coverage for the XTM platform."
+        ]
+      }
+    ],
     "education": "Education",
+    "educationList": [
+      {
+        "period": "2019 - 2023",
+        "degree": "Bachelor of Engineering in Computer Science",
+        "school": "Collegium Da Vinci",
+        "location": "Poznań"
+      }
+    ],
     "languages": "Languages",
+    "languagesList": [
+      { "name": "Polish", "level": "Native" },
+      { "name": "English", "level": "Advanced" }
+    ],
     "todo": "To be developed..."
   },
   "modeSwitch": {
-    "professional": "Professional",
-    "casual": "Casual"
+    "professional": "Professional me",
+    "casual": "Regular Me"
   },
   "contact": {
     "bubble": "Contact Me!",

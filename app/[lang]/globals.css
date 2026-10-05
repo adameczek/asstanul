@@ -39,7 +39,6 @@ body {
   background-image: repeating-radial-gradient(circle at 17% 32%, white, black 0.00085px);
   background-position: center;
   animation: tv-flicker 5s linear infinite;
-  transform: translateZ(0);
 }
 
 @keyframes tv-flicker {

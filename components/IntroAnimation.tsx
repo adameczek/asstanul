@@ -448,7 +448,7 @@ export default function IntroAnimation({
 
       <div
         className="tv-flicker pointer-events-none absolute inset-0 z-30"
-        style={{ mixBlendMode: "overlay", opacity: 0.5 }}
+        style={{ opacity: 0.12 }}
         aria-hidden
       />
     </div>
