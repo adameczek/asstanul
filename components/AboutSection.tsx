@@ -7,7 +7,7 @@ export default async function AboutSection() {
   return (
     <>
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
+        <h1 className="pt-10 font-display text-4xl font-bold tracking-tight md:text-6xl">
           {dict.about.heading}
         </h1>
       </div>
